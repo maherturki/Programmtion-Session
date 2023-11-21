@@ -4,6 +4,8 @@ const mongoose = require("mongoose");
 const taskRoutes = require("./routes/task");
 const bookRoutes = require("./routes/book");
 const userRoutes = require("./routes/user");
+const authorRoutes = require('./routes/author');
+const eventRoutes = require("./routes/event");
 
 mongoose
   .connect(
@@ -22,6 +24,9 @@ app.use(express.json());
 app.use("/api/auth", userRoutes);
 app.use("/api/tasks", taskRoutes); 
 app.use("/api/books", bookRoutes);
+app.use('/api/authors', authorRoutes);
+app.use("/events", eventRoutes);
+
 
 app.use(express.json()); 
 

@@ -1,25 +1,8 @@
-const User = require("../models/user"); 
+const jwt = require("jsonwebtoken");
+const bcrypt = require("bcrypt");
 
-// exports.signup = (req, res, next) => {
-//     bcrypt.hash(req.body.password, 10)
-//         .then((hash) => {
-//             const user = new User({
-//                 email: req.body.email,
-//                 password: hash,
-//             });
-//             user.save()
-//                 .then((response) => {
-//                     const newUser = response.toObject(); // toobject : convert objet mongoose l objet js
-//                     delete newUser.password;
-//                     res.status(201).json({
-//                         user: newUser,
-//                         message: "User created!",
-//                     });
-//                 })
-//                 .catch((error) => res.status(400).json({ error: error }));
-//         })
-//         .catch((error) => res.status(500).json({ error: error.message }));
-// };
+const User = require("../models/user");
+
 
 exports.signup = (req, res, next) => {
     bcrypt.hash(req.body.password, 10)
@@ -76,5 +59,3 @@ exports.login = (req, res, next) => {
         })
         .catch((error) => res.status(500).json({ error: error.message }));
 };
-
-//popluate besh yraj3 les données lkol te3 authoer heka : .popluate('author'), w tji 9bal el then
